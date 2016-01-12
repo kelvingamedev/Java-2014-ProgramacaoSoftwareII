@@ -1,0 +1,14 @@
+Paulo passou as bases tecnológicas da matéria de Programação de 
+Computadores - Java + Avançado
+
+-O foco fica por conta do Banco de Dados e da Interface gráfica;
+
+-Java para Web também terá uma participação;
+
+Após isso, ele iniciou no NetBeans uma revisão de alguns dos
+tópicos do semestre passado:
+-Método principal;
+-Estruturas de repetição;
+-Estruturas condicionais;
+-Comandos de impressão e de entrada;
+-Métodos com e sem passagem de parâmetros

@@ -1,0 +1,165 @@
+CREATE DATABASE empresa;
+USE empresa;
+
+/*TABELA TELEFONE*/
+
+
+CREATE TABLE telefone(
+TelCod int primary key auto_increment,
+TelRes varchar(10) not null,
+TelCel varchar(11) not null
+);
+
+/*TABELA ENDERECO*/
+
+CREATE TABLE endereco(
+EndCod int primary key auto_increment,
+EndLog varchar(30) not null,
+EndNum varchar(5) not null,
+EndCom varchar(10), 
+EndBai varchar(20) not null,
+EndCid varchar(20) not null,
+EndEst varchar(2) not null,
+EndCep varchar(8) not null
+);
+
+/*TABELA FUNCIONARIO*/
+
+CREATE TABLE funcionario(
+FunCod int primary key auto_increment,
+FunNome varchar(30) not null,
+FunRg varchar(9) not null,
+FunCpf varchar(11) not null,
+FunEnd int,
+FunTel int,
+foreign key(FunEnd) references endereco(EndCod),
+foreign key(FunTel) references telefone(TelCod)
+);
+
+
+/*INSERÇÃO DE VALORES NA TABELA TELEFONE*/
+
+
+INSERT INTO telefone  VALUES(
+1,
+'1156741039',
+'11956465464');
+
+
+/*INSERÇÃO DE VALORES NA TABELA TELEFONE*/
+INSERT INTO telefone  VALUES(
+2,
+'1154564565',
+'11978978946');
+
+
+INSERT INTO telefone  VALUES(
+3,
+'1151655656',
+'11961613689');
+
+
+INSERT INTO telefone VALUES(
+4,
+'1151456666',
+'11961614569');
+
+
+/*INSERÇÃO DE VALORES NA TABELA ENDERECO */
+
+INSERT INTO endereco VALUES(
+1,
+"Rua sei lá",
+'100',
+'1',
+'Bairro do Desc',
+'Diadema',
+'SP',
+'04457894'
+);
+
+INSERT INTO endereco VALUES(
+2,
+"Rua Só sei que nada sei",
+'60',
+'',
+'Bairro Socratiano',
+'Atenas',
+'GR',
+'04152754'
+);
+
+INSERT INTO endereco VALUES(
+3,
+"Rua Penso, Logo existo",
+'75',
+'40',
+'Bairro Cartesiano',
+'Paris',
+'FR',
+'04122754'
+);
+
+INSERT INTO endereco VALUES(
+4,
+"Rua O objetivo é ser feliz",
+'87',
+'503',
+'Bairro Caminho da Vida',
+'Guacuri',
+'SP',
+'04122864'
+);
+
+
+/*INSERÇÃO DOS DADOS NA TABELA FUNCIONÁRIO*/
+
+INSERT INTO funcionario VALUES(
+1,
+'Rene Decartes',
+'3865472141',
+'987651694657',
+1,
+1
+);
+
+INSERT INTO funcionario VALUES(
+2,
+'Henri Azedo',
+'3865572491',
+'487859614652',
+2,
+2
+);
+
+
+INSERT INTO funcionario VALUES(
+3,
+'Anderson Araujo',
+'2195471151',
+'427681654727',
+3,
+3
+);
+
+
+INSERT INTO funcionario VALUES(
+3,
+'Anderson Araujo',
+'2195471151',
+'427681654727',
+3,
+3
+);
+
+
+INSERT INTO funcionario VALUES(
+4,
+'Kelvin Oliveira',
+'8715451257',
+'624681694577',
+4,
+4
+);
+
+

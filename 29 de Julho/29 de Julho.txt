@@ -1,0 +1,1 @@
+Com foco na revisão de métodos e classes no Java, Paulo trabalhou principalmente com a Herança entre classes.

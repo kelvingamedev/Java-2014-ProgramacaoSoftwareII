@@ -1,0 +1,99 @@
+CREATE DATABASE cosmetico;
+USE cosemetico
+
+/*Criação da tabela TELEFONE*/
+
+CREATE TABLE telefone 
+(
+TelCod integer primary key,
+TelRes char(10),
+TelCel char(11)
+);
+
+/*Criação da tabela ENDEREÇO*/
+
+CREATE TABLE endereco
+(
+EndCod integer primary key,
+EndRua varchar(25),
+EndNum char(5),
+EndCompl char(2),
+EndCid varchar(20),
+EndEst char(2)
+);
+
+/*Criação da tabela fabricante*/
+
+CREATE TABLE fabricante
+(
+FabCod integer primary key,
+FabNome varchar(30),
+FabCNPJ varchar(14),
+FabObs varchar(255),
+FabTel integer,
+FabEnd integer
+);
+
+ALTER TABLE fabricante ADD FOREIGN KEY (FabTel) REFERENCES telefone (TelCod);
+ALTER TABLE fabricante ADD FOREIGN KEY (FabEnd) REFERENCES endereco (EndCod);
+
+/*Criação da tabela Produto*/
+
+CREATE TABLE produto 
+(
+ProCod integer primary key,
+ProNome varchar(20),
+ProFab integer,
+ProObs varchar(255),
+ProPreco double,
+ProQuant integer
+);
+
+
+
+ALTER TABLE produto ADD FOREIGN KEY (ProFab) REFERENCES fabricante (FabCod);
+
+/* Cria a tabela de Login*/
+
+CREATE TABLE login
+(
+LogCod integer primary key,
+LogUsu varchar(20),
+LogSenha varchar(20)
+);
+
+
+
+/*Cria a tabela funcionário*/
+
+CREATE TABLE funcionario
+(
+FunCod integer primary key,
+FunNome varchar(30),
+FunRg varchar(9),
+FunCpf varchar(11),
+FunEnd integer,
+FunTel integer,
+FunLog integer	
+);
+
+ALTER TABLE funcionario ADD FOREIGN KEY (FunEnd) REFERENCES endereco (EndCod);
+ALTER TABLE funcionario ADD FOREIGN KEY (FunTel) REFERENCES telefone (TelCod);
+ALTER TABLE funcionario ADD FOREIGN KEY (FunLog) REFERENCES login    (LogCod);
+
+CREATE TABLE vendas
+(
+VendCod integer primary key,
+VendFun integer,
+VendProd integer,
+VendPreco double,
+VendQuant integer,
+VendObs varchar(255)
+);
+
+ALTER TABLE vendas ADD FOREIGN KEY (VendFun) REFERENCES funcionario    (FunCod);
+ALTER TABLE vendas ADD FOREIGN KEY (VendProd) REFERENCES produto  (ProCod);
+
+
+
+
